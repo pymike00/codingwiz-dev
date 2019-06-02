@@ -4,14 +4,19 @@
 
 {% block content %}
 <div class="container content-container">
-
     <div class="row no-gutters">
 
         <div class="col-md-9 order-md-2">
             {% for post in posts %}
             <div class="single-post-home">                           
                 <h5>{{ post.title }}</h5>
-                <p>{{ post.body }}</p>
+                <p class="p-small-two text-muted">{{ post.created_at.strftime('%d.%m.%Y') }}</p>
+
+                {% if post.description %}
+                <p class="p-small-one text-muted mb-0">
+                    {{ post.description }}
+                </p>
+                {% endif %}
             </div>
             {% endfor %}         
         </div>
@@ -20,7 +25,6 @@
             {% include 'about_me_snippet.html' %}           
         </div>
 
-    </div>
-    
+    </div>    
 </div>
 {% endblock %}

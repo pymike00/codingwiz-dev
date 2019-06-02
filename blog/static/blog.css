@@ -44,6 +44,14 @@ html, body {
     margin-bottom: 30px;
 }
 
+.p-small-one {
+    font-size: 0.875rem;
+}
+
+.p-small-two {
+    font-size: 0.800rem;
+}
+
 @media (min-width: 768px) {
     .single-post-home {
         margin-left: 30px;

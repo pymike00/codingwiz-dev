@@ -4,7 +4,6 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from blog import db
 
-
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, default=datetime.now)

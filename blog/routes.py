@@ -1,14 +1,12 @@
 from flask import render_template
 from blog import app
+from blog.models import Post
 
 
 @app.route("/")
 def homepage():
-    posts = [{"title": "primo post", "body": "random body"}, 
-             {"title": "secondo post", "body": "more random content"}]
-    some_boolean_flag = False
-    return render_template("homepage.html", 
-                           posts=posts, boolean_flag=some_boolean_flag)
+    posts = Post.query.order_by(Post.created_at.desc()).all()
+    return render_template("homepage.html", posts=posts)
 
 
 @app.route("/about")
