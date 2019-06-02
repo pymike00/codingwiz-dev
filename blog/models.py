@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from werkzeug.security import check_password_hash, generate_password_hash
+
 from blog import db
 
 
@@ -11,6 +13,15 @@ class User(db.Model):
     password = db.Column(db.String(250), nullable=False)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
+    def __repr__(self):
+        return f"User('{ self.id }', '{ self.username }', '{ self.email }')"
+
+    def set_password_hash(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,3 +30,6 @@ class Post(db.Model):
     title = db.Column(db.String(120), nullable=False)
     description = db.Column(db.String(240))
     body = db.Column(db.Text(), nullable=False)
+
+    def __repr__(self):
+        return f"Post('{ self.id }', '{ self.title }')"
