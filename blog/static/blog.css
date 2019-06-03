@@ -36,6 +36,14 @@ html, body {
     margin-bottom: 30px;
 }
 
+.post-page-block {
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;   
+}
+
 .single-post-home {
     background-color: #fff;
     border: 1px solid #d3d3d3;
@@ -52,12 +60,25 @@ html, body {
     font-size: 0.800rem;
 }
 
+.custom-link {
+    color: #000;
+}
+
+.custom-link:hover {
+    color: #343a40;
+    text-decoration: none;
+}
+
 @media (min-width: 768px) {
     .single-post-home {
         margin-left: 30px;
     }
     
     .about-page-block {
+        margin-left: 30px;
+    }
+
+    .post-page-block {
         margin-left: 30px;
     }
 }

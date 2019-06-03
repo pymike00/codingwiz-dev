@@ -9,7 +9,11 @@
         <div class="col-md-9 order-md-2">
             {% for post in posts %}
             <div class="single-post-home">                           
-                <h5>{{ post.title }}</h5>
+                <h5>
+                    <a class="custom-link" href="{{ url_for('post_detail', post_id=post.id) }}">
+                        {{ post.title }}
+                    </a>
+                </h5>
                 <p class="p-small-two text-muted">{{ post.created_at.strftime('%d.%m.%Y') }}</p>
 
                 {% if post.description %}
