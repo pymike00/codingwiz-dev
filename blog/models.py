@@ -1,10 +1,17 @@
 from datetime import datetime
 
+from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from blog import db
+from blog import db, login_manager
 
-class User(db.Model):
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, default=datetime.now)
     username = db.Column(db.String(12), unique=True, nullable=False)
