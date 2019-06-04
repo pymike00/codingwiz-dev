@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Post Editor - CondingWiz{% endblock %}
+
+{% block content %}
+<div class="container content-container mt-3">
+    <h2>Crea un nuovo Post</h2>
+    <div class="row no-gutters">
+        <div class="col">
+            <form method="POST" novalidate>
+                {{ form.hidden_tag() }} <!-- csrf_token -->
+                <div class="form-group">
+                    {{ form.title.label }}
+                    {{ form.title(class="form-control") }}
+                    {% if form.title.errors %}
+                    {% for error in form.title.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    <br>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.description.label }}
+                    {{ form.description(class="form-control") }}
+                    {% if form.description.errors %}
+                    {% for error in form.description.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    <br>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.body.label }}
+                    {{ form.body(class="form-control", rows=15) }}
+                    {% if form.body.errors %}
+                    {% for error in form.body.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    <br>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <hr>
+                {{ form.submit(class="btn btn-sm btn-outline-secondary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

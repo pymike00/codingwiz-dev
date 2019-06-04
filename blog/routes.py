@@ -1,8 +1,8 @@
 from flask import flash, redirect, render_template, url_for
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 
-from blog import app
-from blog.forms import LoginForm
+from blog import db, app
+from blog.forms import LoginForm, PostForm
 from blog.models import Post, User
 
 
@@ -16,6 +16,19 @@ def homepage():
 def post_detail(post_id):
     post_instance = Post.query.get_or_404(post_id)
     return render_template("post_detail.html", post=post_instance)
+
+
+@app.route("/create-post", methods=["GET", "POST"])
+@login_required
+def post_create():
+    form = PostForm()
+    if form.validate_on_submit():
+        new_post = Post(title=form.title.data, body=form.body.data,
+                        description=form.description.data, author=current_user)
+        db.session.add(new_post)
+        db.session.commit()
+        return redirect(url_for('post_detail', post_id=new_post.id))
+    return render_template("post_editor.html", form=form)
 
 
 @app.route("/about")
