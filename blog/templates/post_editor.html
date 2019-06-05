@@ -4,7 +4,11 @@
 
 {% block content %}
 <div class="container content-container mt-3">
+    {% if request.path == "/create-post" %}
     <h2>Crea un nuovo Post</h2>
+    {% else %}
+    <h2>Aggiorna il Post</h2>
+    {% endif %}
     <div class="row no-gutters">
         <div class="col">
             <form method="POST" novalidate>

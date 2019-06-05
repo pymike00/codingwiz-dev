@@ -12,6 +12,9 @@
                 <p class="p-small-two text-muted">
                     {{ post.created_at.strftime('%d.%m.%Y') }}
                 </p>
+                {% if current_user.is_authenticated and current_user == post.author %}
+                <a class="btn btn-sm btn-outline-success" href="{{ url_for('post_update', post_id=post.id) }}">Aggiorna</a>
+                {% endif %}
                 <p>{{ post.body|markdown }}</p>
             </div> 
 
