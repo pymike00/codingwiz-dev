@@ -34,6 +34,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now)
     title = db.Column(db.String(120), nullable=False)
+    slug = db.Column(db.String(250))
     description = db.Column(db.String(240))
     body = db.Column(db.Text(), nullable=False)
 
