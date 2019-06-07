@@ -12,6 +12,7 @@ Jinja2==2.10.1
 Mako==1.0.10
 MarkupSafe==1.1.1
 misaka==2.1.1
+Pillow==6.0.0
 pycparser==2.19
 python-dateutil==2.8.0
 python-dotenv==0.10.2

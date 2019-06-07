@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Length
 
@@ -19,5 +20,7 @@ class PostForm(FlaskForm):
         validators=[Length(max=240, message="Assicurati che il campo descrizione non superi i 240 caratteri.")])
     body = TextAreaField('Contenuto', 
         validators=[DataRequired("Campo Obbligatorio!")])
+    image = FileField('Copertina Articolo', 
+        validators=[FileAllowed(['jpg', 'jpeg', 'png'])])
     submit = SubmitField('Pubblica Post')
 

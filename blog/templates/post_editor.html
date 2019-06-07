@@ -11,7 +11,18 @@
     {% endif %}
     <div class="row no-gutters">
         <div class="col">
-            <form method="POST" novalidate>
+
+            <div class="mb-3">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p style="color: #dc3545">{{ message }}</p>
+                    {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <form method="POST" enctype="multipart/form-data" novalidate>
                 {{ form.hidden_tag() }} <!-- csrf_token -->
                 <div class="form-group">
                     {{ form.title.label }}
@@ -38,6 +49,16 @@
                     {{ form.body(class="form-control", rows=15) }}
                     {% if form.body.errors %}
                     {% for error in form.body.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                    <br>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.image.label }}
+                    {{ form.image(class="form-control-file") }}
+                    {% if form.image.errors %}
+                    {% for error in form.image.errors %}
                     <span class="text-danger">{{ error }}</span>
                     <br>
                     {% endfor %}

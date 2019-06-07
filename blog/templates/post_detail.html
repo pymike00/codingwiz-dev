@@ -8,6 +8,13 @@
         <div class="col-md-9 order-md-2">
 
             <div class="post-page-block">
+
+                {% if post.image %}
+                <div>
+                    <img class="img-fluid" src="{{ url_for('static', filename='img/posts/' + post.image) }}" alt="">
+                </div>
+                {% endif %}
+
                 <h3>{{ post.title }}</h3>
                 <p class="p-small-two text-muted">
                     {{ post.created_at.strftime('%d.%m.%Y') }}
