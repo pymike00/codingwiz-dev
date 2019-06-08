@@ -7,7 +7,7 @@
     <div class="row no-gutters">
         
         <div class="col-md-9 order-md-2">
-            {% for post in posts %}
+            {% for post in posts.items %}
             <div class="single-post-home">   
                 <h5>
                     <a class="custom-link" href="{{ url_for('post_detail', post_slug=post.slug) }}">
@@ -25,7 +25,20 @@
                 </p>
                 {% endif %}
             </div>
-            {% endfor %}         
+            {% endfor %}
+            
+            <div class="pagination-block">
+                {% if previous_page %}
+                {% if current_page == 2 %}
+                <a class="btn btn-sm btn-outline-secondary" href="/">↩ Indietro</a>
+                {% else %}
+                <a class="btn btn-sm btn-outline-secondary" href="{{ previous_page }}">↩ Indietro</a>
+                {% endif %}
+                {% endif %}
+                {% if next_page %}
+                <a class="btn btn-sm btn-outline-secondary" href="{{ next_page }}">↪ Avanti</a>
+                {% endif %}
+            </div>
         </div>
 
         <div class="col-md-3 order-md-1">

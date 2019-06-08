@@ -21,6 +21,10 @@ html, body {
     padding: 0px;
 }
 
+.pagination-block {
+    margin-bottom: 30px;
+}
+
 .about-snippet-block {
     background-color: #fff;
     border: 1px solid #d3d3d3;
@@ -104,6 +108,10 @@ html, body {
     }
 
     .post-image-block {
+        margin-left: 30px;
+    }
+
+    .pagination-block {
         margin-left: 30px;
     }
 }
