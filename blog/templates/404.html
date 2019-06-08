@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}404 - Pagina Non Trovata{% endblock %}
+
+{% block content %}
+<div class="container content-container">
+
+    <div class="row no-gutters">
+
+        <div class="col-md-9 order-md-2">
+            <div class="about-page-block">
+                <p class="lead">Errore 404.</p>
+                <hr>
+                <p>Pagina Non Trovata.</p>
+                <p>La pagina richiesta non esiste o l'url digitato non è corretto.</p>
+                <hr>
+                <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('homepage') }}">↩ Tutti i Post</a>            
+            </div>  
+        </div>
+
+        <div class="col-md-3 order-md-1">
+            {% include 'about_me_snippet.html' %}              
+        </div>
+
+    </div>
+    
+</div>
+{% endblock %}

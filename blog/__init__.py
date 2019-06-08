@@ -22,4 +22,4 @@ with app.app_context():
     else:
         migrate.init_app(app, db)
 
-from blog import models, routes
+from blog import errors, models, routes
