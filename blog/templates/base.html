@@ -21,7 +21,7 @@
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link{% if request.path == '/' %} active{% endif %}" href="{{ url_for('homepage') }}">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link{% if request.path == '/about' %} active{% endif %}" href="{{ url_for('about') }}">About</a>
-                    <a class="nav-item nav-link" href="#">Contatti</a>
+                    <a class="nav-item nav-link{% if request.path == '/contact' %} active{% endif %}" href="{{ url_for('contact') }}">Contatti</a>
                     {% if current_user.is_authenticated %}
                     <a class="nav-item nav-link{% if request.path == '/create-post' %} active{% endif %}" href="{{ url_for('post_create') }}">Crea Post</a>
                     <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>

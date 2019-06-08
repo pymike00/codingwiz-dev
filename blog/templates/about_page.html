@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}About{% endblock %}
+{% block title %}About Me{% endblock %}
 
 {% block content %}
 <div class="container content-container">
@@ -13,6 +13,7 @@
                 <hr>
                 {{ lipsum() }}     
                 <hr>
+                <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('contact') }}">Contact Me.</a>
             </div>    
         </div>
 

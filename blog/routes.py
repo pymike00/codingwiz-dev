@@ -1,7 +1,7 @@
 from flask import abort, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 
-from blog import db, app
+from blog import app, db
 from blog.forms import LoginForm, PostForm
 from blog.models import Post, User
 from blog.utils import save_picture, title_slugifier
@@ -103,6 +103,11 @@ def post_delete(post_id):
 @app.route("/about")
 def about():
     return render_template("about_page.html")
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact_page.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
