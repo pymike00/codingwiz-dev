@@ -14,11 +14,14 @@
                         {{ post.title }}
                     </a>
                 </h5>
-                <p class="p-small-two text-muted">{{ post.created_at.strftime('%d.%m.%Y') }}</p>
+                <p class="p-small-two text-muted">
+                    {{ post.created_at.strftime('%d.%m.%Y') }}
+                </p>
 
                 {% if post.description %}
                 <p class="p-small-one text-muted mb-0">
                     {{ post.description }}
+                    <a class="read-more" href="{{ url_for('post_detail', post_slug=post.slug) }}">Leggi articolo.</a>
                 </p>
                 {% endif %}
             </div>

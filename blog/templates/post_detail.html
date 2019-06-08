@@ -7,13 +7,14 @@
     <div class="row no-gutters">
         <div class="col-md-9 order-md-2">
 
+            {% if post.image %}
+            <div class="post-image-block">
+                <img class="img-fluid post-image" src="{{ url_for('static', filename='img/posts/' + post.image) }}" alt="">
+            </div>
+            <div class="post-page-block no-border-top">
+            {% else %}
             <div class="post-page-block">
-
-                {% if post.image %}
-                <div>
-                    <img class="img-fluid" src="{{ url_for('static', filename='img/posts/' + post.image) }}" alt="">
-                </div>
-                {% endif %}
+            {% endif %}
 
                 <h3>{{ post.title }}</h3>
                 <p class="p-small-two text-muted">
@@ -26,6 +27,8 @@
                 </button>
                 {% endif %}
                 <p>{{ post.body|markdown }}</p>
+                <hr>
+                <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('homepage') }}">↩ Tutti i Post</a>
             </div> 
 
         </div>

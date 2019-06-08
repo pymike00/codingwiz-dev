@@ -71,7 +71,9 @@ def post_update(post_id):
         form.title.data = post_instance.title
         form.description.data = post_instance.description
         form.body.data = post_instance.body
-    return render_template("post_editor.html", form=form)
+    
+    post_image = post_instance.image or None
+    return render_template("post_editor.html", form=form, post_image=post_image)
 
 
 @app.route("/posts/<int:post_id>/delete", methods=["POST"])
@@ -83,7 +85,6 @@ def post_delete(post_id):
     db.session.delete(post_instance)
     db.session.commit()
     return redirect(url_for('homepage'))
-
 
 
 @app.route("/about")

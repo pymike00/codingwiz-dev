@@ -110,3 +110,5 @@ venv.bak/
 
 # media files images
 /blog/static/img/posts/*
+
+/blog/static/img/ai.png

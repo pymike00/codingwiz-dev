@@ -3,7 +3,7 @@
 {% block title %}Post Editor - CondingWiz{% endblock %}
 
 {% block content %}
-<div class="container content-container mt-3">
+<div class="container content-container mt-3 px-3 px-lg-0">
     {% if request.path == "/create-post" %}
     <h2>Crea un nuovo Post</h2>
     {% else %}
@@ -11,6 +11,10 @@
     {% endif %}
     <div class="row no-gutters">
         <div class="col">
+
+            {% if post_image %}
+            <img class="img-fluid" src="{{ url_for('static', filename='img/posts/' + post_image) }}" alt="">
+            {% endif %}
 
             <div class="mb-3">
                 {% with messages = get_flashed_messages() %}
