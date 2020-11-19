@@ -109,6 +109,6 @@ venv.bak/
 .mypy_cache/
 
 # media files images
-/blog/static/img/posts/*
-
-/blog/static/img/ai.png
+/blog/static/img/posts/*.png
+/blog/static/img/posts/*.jpg
+/blog/static/img/posts/*.jpeg
