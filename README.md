@@ -1,7 +1,6 @@
 # CodingWiz.dev
 A lightweight blog app built with Python and Flask. Source Code from my Python and Flask Web Development Course (Lang: Italian)
 
-<br>
 
 ### How To Install Locally
 ```
@@ -19,7 +18,7 @@ db.session.add(u)
 quit()
 flask run
 ```
-<br>
+
 
 ### Few things you might want to add/change if you intend to actually use the app:
 - Error Logging
