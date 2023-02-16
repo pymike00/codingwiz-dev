@@ -18,6 +18,6 @@ Pillow==9.1.0
 pycparser==2.21
 python-dotenv==0.20.0
 SQLAlchemy==1.4.35
-Werkzeug==2.1.1
+Werkzeug==2.2.3
 WTForms==3.0.1
 zipp==3.8.0
