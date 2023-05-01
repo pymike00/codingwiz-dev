@@ -1,7 +1,7 @@
 alembic==1.7.7
 cffi==1.15.0
 click==8.1.2
-Flask==2.1.1
+Flask==2.3.2
 Flask-Login==0.6.0
 Flask-Migrate==3.1.0
 Flask-Misaka==1.0.0
